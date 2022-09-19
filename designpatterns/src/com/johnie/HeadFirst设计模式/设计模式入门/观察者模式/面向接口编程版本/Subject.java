@@ -10,7 +10,9 @@ package com.johnie.HeadFirst设计模式.设计模式入门.观察者模式.面�
  */
 public interface Subject {
     void registerObserver(Observer observer);
+
     void removeObserver(Observer observer);
+
     void notifyObservers();
 
 }

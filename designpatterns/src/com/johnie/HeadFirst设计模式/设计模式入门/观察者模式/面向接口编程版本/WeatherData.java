@@ -10,13 +10,13 @@ import java.util.ArrayList;
  * @description
  * @date 2022/9/12 22:23
  */
-public class WeatherData implements Subject{
+public class WeatherData implements Subject {
     private ArrayList<Observer> observers;
     private float temperature;
     private float humidity;
     private float pressure;
 
-    private  boolean changed;
+    private boolean changed;
 
     public WeatherData() {
         this.observers = new ArrayList<>();
@@ -30,44 +30,45 @@ public class WeatherData implements Subject{
     @Override
     public void removeObserver(Observer observer) {
         int index = observers.indexOf(observer);
-        if (index !=-1){
+        if (index != -1) {
             this.observers.remove(index);
         }
     }
 
     @Override
     public void notifyObservers() {
-        if (changed){
+        if (changed) {
             for (Observer observer : this.observers) {
-                observer.update(this,null);
+                observer.update(this, null);
             }
             changed = false;
         }
 
     }
 
-    void measurementsChanged(){
+    void measurementsChanged() {
         this.setChanged(true);
         this.notifyObservers();
     }
 
-    void setMeasurements(float temperature,float humidity,float pressure){
+    void setMeasurements(float temperature, float humidity, float pressure) {
         this.temperature = temperature;
         this.humidity = humidity;
         this.pressure = pressure;
         this.measurementsChanged();
     }
 
-    float getTemperature(){
+    float getTemperature() {
         return 3.3f;
-    };
-    float getHumidity(){
-        return 3.3f;
-    };
-    float getPressure(){
-        return 3.3f;
-    };
+    }
 
+    float getHumidity() {
+        return 3.3f;
+    }
+
+    float getPressure() {
+        return 3.3f;
+    }
 
 
     public ArrayList<Observer> getObservers() {

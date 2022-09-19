@@ -8,7 +8,7 @@ package com.johnie.HeadFirst设计模式.设计模式入门.观察者模式.面�
  * @description
  * @date 2022/9/12 22:27
  */
-public class CurrentConditionDisplay implements Observer,DisplayElements{
+public class CurrentConditionDisplay implements Observer, DisplayElements {
     private float temperature;
     private float humidity;
     private float pressure;
@@ -26,8 +26,7 @@ public class CurrentConditionDisplay implements Observer,DisplayElements{
 
     @Override
     public void update(Subject subject, Object obj) {
-        if (subject instanceof WeatherData){
-            WeatherData weatherData = (WeatherData) subject;
+        if (subject instanceof WeatherData weatherData) {
             this.temperature = weatherData.getTemperature();
             this.humidity = weatherData.getHumidity();
             this.pressure = weatherData.getPressure();
@@ -69,11 +68,6 @@ public class CurrentConditionDisplay implements Observer,DisplayElements{
 
     @Override
     public String toString() {
-        return "CurrentConditionDisplay{" +
-                "temperature=" + temperature +
-                ", humidity=" + humidity +
-                ", pressure=" + pressure +
-                ", subject=" + subject +
-                '}';
+        return "CurrentConditionDisplay{" + "temperature=" + temperature + ", humidity=" + humidity + ", pressure=" + pressure + ", subject=" + subject + '}';
     }
 }
